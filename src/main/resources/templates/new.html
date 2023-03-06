@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<header>
+    <form th:method="POST" th:action="@{/logout}">
+        <button type="submit" class="btn btn-secondary">Logout</button>
+    </form>
+</header>
+
+<body>
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
+    <label for="name">Enter name </label>
+    <input type="text" th:field="*{username}" id="name"/>
+    <br>
+    <label for="lastname">Enter last name </label>
+    <input type="text" th:field="*{lastName}" id="lastname"/>
+    <br>
+    <label for="email">Enter email </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br>
+    <label for="password">password :</label>
+    <input id="password" type="text" th:field="*{password}">
+    <br>
+    <p>
+        <label>Roles:
+            <input type="checkbox" name="roleList"
+                   th:each="role : ${roles}"
+                   th:text="${role.getRole()}"
+                   th:value="${role.getId()}"
+                   th:field="*{roles}"
+            />
+        </label>
+    </p>
+    <input type="submit" value="Create"/>
+</form>
+<br>
+<form action="/logout">
+    <button>Logout</button>
+</form>
+</body>
+</html>
