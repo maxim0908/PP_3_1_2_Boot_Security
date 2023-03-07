@@ -8,6 +8,7 @@
 <body>
 <p th:text="${user.getUsername()}">VALUE</p>
 <p th:text="${user.getId()}">VALUE</p>
+
 <a th:href="@{/admin/{id}/edit(id=${user.getId()})}">
     <input type="submit" value="Edit"/>
 </a>

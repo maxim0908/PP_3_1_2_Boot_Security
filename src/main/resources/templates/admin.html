@@ -4,28 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <style>
-        body {
-            font-size: large;
-        }
-
-        table {
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid;
-            align-content: center;
-        }
-
-        tr:hover td {
-            background-color: lightblue;
-        }
-
-        .no-border {
-            border: 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -35,6 +13,7 @@
         <th>firstName</th>
         <th>lastName</th>
         <th>email</th>
+        <th>role</th>
     </tr>
 
     <tr th:each="user : ${users}">
@@ -57,12 +36,16 @@
     <input type="submit" value="Add"/>
 </a>
 
-<a th:href="@{/logout}">
-    <input type="submit" value="Logout"/>
-</a>
+<br/>
 
 <a th:href="@{/user}">
     <input type="submit" value="User"/>
+</a>
+
+<br/>
+
+<a th:href="@{/logout}">
+    <input type="submit" value="Logout"/>
 </a>
 
 </body>

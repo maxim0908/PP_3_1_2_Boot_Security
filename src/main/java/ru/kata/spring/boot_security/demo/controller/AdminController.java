@@ -29,7 +29,7 @@ public class AdminController {
     @GetMapping()
     public String allUsers(ModelMap model) {
         model.addAttribute("users", userService.getAllUsers());
-        return "admin";//admin
+        return "admin";
     }
     @GetMapping("/{id}")
     public String showUser(@PathVariable("id") Long id, Model model) {

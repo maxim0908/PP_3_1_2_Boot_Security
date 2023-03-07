@@ -5,10 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.entity.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
@@ -32,12 +29,14 @@ public class UserController {
         roleService.getRoles();
         return "registration";
     }
+
     @PostMapping("/registration")
     public String perfomRegistration(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-
         return "redirect:/login";
     }
+
+
     @GetMapping("/user")
     public String showUserInfo(Model model, Principal principal) {
         model.addAttribute("user", userService.getUserByUsername(principal.getName()));

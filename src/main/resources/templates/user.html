@@ -10,23 +10,9 @@
 <p>Информация о пользователе</p>
 
 
-<table>
-    <tr>
-        <th>id</th>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Email</th>
-    </tr>
-    <tr th:each="userInfo : ${user}">
+<span th:text="${#request.userPrincipal.name}"></span>
 
-        <th th:utext="${userInfo.getId()}"></th>
-        <th th:utext="${userInfo.getUsername()}"></th>
-        <th th:utext="${userInfo.getLastName()}"></th>
-        <th th:utext="${userInfo.getEmail()}"></th>
-
-    </tr>
-</table>
-
+<br/>
 
 <a th:href="@{/logout}">
     <input type="submit" value="Logout"/>
